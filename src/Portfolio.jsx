@@ -240,7 +240,7 @@ export default function Portfolio() {
 
 
       {/* BACK TO TOP */}
-      {showTop && (
+      {/* {showTop && (
         <button
           onClick={scrollToTop}
          className="fixed bottom-6 right-6 bg-white text-purple-600 p-4 rounded-full shadow-xl border border-purple-200 hover:bg-purple-600 hover:text-white hover:scale-110 transition duration-300 z-40"
@@ -248,7 +248,7 @@ export default function Portfolio() {
         >
           ↑
         </button>
-      )}
+      )} */}
     </div>
   );
 }
