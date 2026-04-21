@@ -55,9 +55,16 @@ export default function Portfolio() {
     <div className="min-h-screen font-sans scroll-smooth text-lg text-gray-900">
 
       {/* BACKGROUND */}
-      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-purple-200 via-pink-100 to-indigo-200"></div>
+      {/* <div className="fixed inset-0 -z-10 bg-gradient-to-br from-purple-200 via-pink-100 to-indigo-200"></div>
       <div className="fixed top-[-100px] left-[-100px] w-[400px] h-[400px] bg-purple-400 opacity-30 rounded-full blur-3xl"></div>
-      <div className="fixed bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-indigo-400 opacity-30 rounded-full blur-3xl"></div>
+      <div className="fixed bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-indigo-400 opacity-30 rounded-full blur-3xl"></div> */}
+
+      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-purple-200 via-pink-100 to-indigo-200 pointer-events-none"></div>
+
+<div className="fixed top-[-100px] left-[-100px] w-[400px] h-[400px] bg-purple-400 opacity-30 rounded-full blur-3xl pointer-events-none"></div>
+
+<div className="fixed bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-indigo-400 opacity-30 rounded-full blur-3xl pointer-events-none"></div>
+
 
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 w-full bg-white/60 backdrop-blur-lg border-b border-gray-200 z-50 shadow-sm">
