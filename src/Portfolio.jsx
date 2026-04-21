@@ -223,9 +223,17 @@ export default function Portfolio() {
         <div className="text-center">
 
           <div className="mb-4 space-x-6 text-lg">
-            <a href="https://github.com/Jayesoorya" target="_blank" rel="noopener noreferrer" className="hover:underline">
+            {/* <a href="https://github.com/Jayesoorya" target="_blank" rel="noopener noreferrer" className="hover:underline">
               GitHub
-            </a>
+            </a> */}
+            <a
+  href="https://github.com/Jayesoorya"
+  onClick={() => alert("clicked")}
+  className="hover:underline"
+>
+  GitHub
+</a>
+
             <a href="https://www.linkedin.com/in/jayesoorya-p-11307624a/" target="_blank" rel="noopener noreferrer" className="hover:underline">
               LinkedIn
             </a>
@@ -240,7 +248,7 @@ export default function Portfolio() {
 
 
       {/* BACK TO TOP */}
-      {/* {showTop && (
+      {showTop && (
         <button
           onClick={scrollToTop}
          className="fixed bottom-6 right-6 bg-white text-purple-600 p-4 rounded-full shadow-xl border border-purple-200 hover:bg-purple-600 hover:text-white hover:scale-110 transition duration-300 z-40"
@@ -248,7 +256,7 @@ export default function Portfolio() {
         >
           ↑
         </button>
-      )} */}
+      )}
     </div>
   );
 }
