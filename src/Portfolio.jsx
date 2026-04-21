@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 export default function Portfolio() {
   const [showTop, setShowTop] = useState(false);
   const [active, setActive] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -60,21 +61,42 @@ export default function Portfolio() {
 
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 w-full bg-white/60 backdrop-blur-lg border-b border-gray-200 z-50 shadow-sm">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-5">
+        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+
+          {/* LOGO / TITLE */}
           <h1
             onClick={scrollToTop}
-            className="text-4xl font-bold text-purple-700 cursor-pointer"
+            className="text-xl md:text-3xl font-bold text-purple-700 cursor-pointer"
           >
-            Jayesoorya | Full Stack Developer
+            Jayesoorya
           </h1>
 
-          <div className="flex items-center space-x-4 text-lg">
+          {/* DESKTOP MENU */}
+          <div className="hidden md:flex items-center space-x-4 text-lg">
             {navItem("projects", "Projects")}
             {navItem("about", "About")}
             {navItem("contact", "Contact")}
           </div>
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            ☰
+          </button>
         </div>
+
+        {/* MOBILE MENU */}
+        {menuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200 px-4 pb-4 flex flex-col space-y-3 text-lg">
+            {navItem("projects", "Projects")}
+            {navItem("about", "About")}
+            {navItem("contact", "Contact")}
+          </div>
+        )}
       </nav>
+
 
       {/* HERO */}
       <section id="home" className="min-h-screen flex items-center justify-center pt-32 px-6">
@@ -201,10 +223,10 @@ export default function Portfolio() {
         <div className="text-center">
 
           <div className="mb-4 space-x-6 text-lg">
-            <a href="https://github.com/Jayesoorya" target="_blank" className="hover:underline">
+            <a href="https://github.com/Jayesoorya" target="_blank" rel="noopener noreferrer" className="hover:underline">
               GitHub
             </a>
-            <a href="https://www.linkedin.com/in/jayesoorya-p-11307624a/" target="_blank" className="hover:underline">
+            <a href="https://www.linkedin.com/in/jayesoorya-p-11307624a/" target="_blank" rel="noopener noreferrer" className="hover:underline">
               LinkedIn
             </a>
           </div>
@@ -221,7 +243,8 @@ export default function Portfolio() {
       {showTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-white text-purple-600 p-3 rounded-full shadow-lg"
+         className="fixed bottom-6 right-6 bg-white text-purple-600 p-4 rounded-full shadow-xl border border-purple-200 hover:bg-purple-600 hover:text-white hover:scale-110 transition duration-300 z-40"
+
         >
           ↑
         </button>
