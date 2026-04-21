@@ -45,11 +45,10 @@ export default function Portfolio() {
     <div className="min-h-screen font-sans scroll-smooth text-lg text-gray-900">
 
       {/* BACKGROUND */}
-      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-green-100 via-teal-100 to-blue-200"></div>
+      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-green-100 via-teal-100 to-blue-200 pointer-events-none"></div>
 
-      <div className="fixed top-[-100px] left-[-100px] w-[400px] h-[400px] bg-teal-300 opacity-30 rounded-full blur-3xl"></div>
-
-      <div className="fixed bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-blue-300 opacity-30 rounded-full blur-3xl"></div>
+      <div className="fixed top-[-100px] left-[-100px] ... pointer-events-none"></div>
+      <div className="fixed bottom-[-100px] right-[-100px] ... pointer-events-none"></div>
 
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 w-full bg-white/60 backdrop-blur-lg border-b border-gray-200 z-50 shadow-sm">
@@ -93,7 +92,7 @@ export default function Portfolio() {
             <img
               src="/profile_pic.png"
               alt="profile"
-              className="w-80 h-80 rounded-2xl object-cover object-[center_20%] shadow-xl"
+              className="w-80 h-80 rounded-2xl object-cover object-[center_20%] shadow-xl bg-white p-1"
             />
           </div>
 
