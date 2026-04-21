@@ -55,15 +55,11 @@ export default function Portfolio() {
     <div className="min-h-screen font-sans scroll-smooth text-lg text-gray-900">
 
       {/* BACKGROUND */}
-      {/* <div className="fixed inset-0 -z-10 bg-gradient-to-br from-purple-200 via-pink-100 to-indigo-200"></div>
-      <div className="fixed top-[-100px] left-[-100px] w-[400px] h-[400px] bg-purple-400 opacity-30 rounded-full blur-3xl"></div>
-      <div className="fixed bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-indigo-400 opacity-30 rounded-full blur-3xl"></div> */}
-
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-purple-200 via-pink-100 to-indigo-200 pointer-events-none"></div>
 
-<div className="fixed top-[-100px] left-[-100px] w-[400px] h-[400px] bg-purple-400 opacity-30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="fixed top-[-100px] left-[-100px] w-[400px] h-[400px] bg-purple-400 opacity-30 rounded-full blur-3xl pointer-events-none"></div>
 
-<div className="fixed bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-indigo-400 opacity-30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="fixed bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-indigo-400 opacity-30 rounded-full blur-3xl pointer-events-none"></div>
 
 
       {/* NAVBAR */}
@@ -230,16 +226,9 @@ export default function Portfolio() {
         <div className="text-center">
 
           <div className="mb-4 space-x-6 text-lg">
-            {/* <a href="https://github.com/Jayesoorya" target="_blank" rel="noopener noreferrer" className="hover:underline">
+            <a href="https://github.com/Jayesoorya" target="_blank" rel="noopener noreferrer" className="hover:underline">
               GitHub
-            </a> */}
-            <a
-  href="https://github.com/Jayesoorya"
-  onClick={() => alert("clicked")}
-  className="hover:underline"
->
-  GitHub
-</a>
+            </a>
 
             <a href="https://www.linkedin.com/in/jayesoorya-p-11307624a/" target="_blank" rel="noopener noreferrer" className="hover:underline">
               LinkedIn
