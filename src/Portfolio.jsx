@@ -214,7 +214,7 @@ export default function Portfolio() {
             <img
               src="/about_me.png"
               alt="developer illustration"
-              className="w-80 md:w-96 rounded-2xl shadow-lg"
+              className="w-full max-w-md md:max-w-lg lg:max-w-xl rounded-2xl shadow-lg"
             />
           </div>
 
