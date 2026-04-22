@@ -38,9 +38,12 @@ export default function Portfolio() {
   };
 
   const navItem = (id, label) => (
-    <a
-      href={`#${id}`}
-      onClick={() => setMenuOpen(false)}
+    <button
+      onClick={() => {
+        setMenuOpen(false);
+        const section = document.getElementById(id);
+        section?.scrollIntoView({ behavior: "smooth" });
+      }}
       className={`px-4 py-2 rounded-lg transition-all duration-300 ${
         active === id
           ? "bg-teal-600 text-white shadow-md"
@@ -48,11 +51,12 @@ export default function Portfolio() {
       }`}
     >
       {label}
-    </a>
+    </button>
   );
 
+
   return (
-    <div className="min-h-screen font-sans text-gray-800 bg-gray-50">
+    <div className="min-h-screen font-sans text-gray-800 bg-gray-50 scroll-smooth">
 
       {/* NAVBAR (GLASS KEPT) */}
       <nav className="fixed top-0 left-0 w-full bg-white/60 backdrop-blur-lg border-b border-gray-200 z-50 shadow-sm">
@@ -69,6 +73,7 @@ export default function Portfolio() {
           </h1>
 
           <div className="hidden md:flex items-center space-x-4 text-lg">
+            {navItem("home", "Home")}
             {navItem("projects", "Projects")}
             {navItem("about", "About")}
             {navItem("contact", "Contact")}
@@ -84,6 +89,7 @@ export default function Portfolio() {
 
         {menuOpen && (
           <div className="md:hidden bg-white border-t px-4 pb-4 flex flex-col space-y-3 text-lg">
+            {navItem("home", "Home")}
             {navItem("projects", "Projects")}
             {navItem("about", "About")}
             {navItem("contact", "Contact")}
@@ -139,7 +145,7 @@ export default function Portfolio() {
               </a>
 
               <a
-                href="/Soorya Resume.pdf"
+                href="/Jayesoorya Resume.pdf"
                 download
                 className="border border-teal-600 text-teal-600 px-6 py-3 rounded-xl hover:bg-teal-600 hover:text-white transition flex items-center gap-2"
               >
@@ -200,22 +206,31 @@ export default function Portfolio() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="px-6 py-24 bg-white border-b border-gray-100">
+      <section id="about" className="px-6 py-24 bg-white border-b border-gray-200">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-        <div className="max-w-4xl mx-auto text-center bg-white rounded-2xl shadow-sm p-8 border border-gray-100">
+          {/* LEFT - IMAGE */}
+          <div className="flex justify-center">
+            <img
+              src="/about_me.png"
+              alt="developer illustration"
+              className="w-80 md:w-96 rounded-2xl shadow-lg"
+            />
+          </div>
 
+          {/* RIGHT - CONTENT */}
+          <div>
+            <h3 className="text-5xl font-bold mb-6 text-teal-700">About Me</h3>
 
-          <h3 className="text-5xl font-bold mb-6 text-teal-700">About Me</h3>
-
-          <p className="text-gray-700 text-lg leading-relaxed">
-            I am a Full Stack Developer with hands-on experience building real-world web applications from the ground up.
-            <br /><br />
-
-            I developed a complete Helpdesk system using Laravel, where I implemented JWT-based authentication, designed RESTful APIs, and handled end-to-end ticket management. I also improved performance using caching techniques like Memcached.
-            <br /><br />
-
-            I focus on writing clean, maintainable code and building scalable backend systems. I enjoy solving practical problems and continuously improving my skills to create efficient and reliable applications.
-          </p>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              I am a Full Stack Developer with hands-on experience in building real-world web applications.
+              <br /><br />
+              I developed a Helpdesk system from scratch using Laravel, implementing JWT-based authentication, RESTful APIs, and efficient ticket management.
+              I also worked on performance improvements using caching techniques like Memcached.
+              <br /><br />
+              I enjoy working on backend architecture, solving real problems, and building scalable systems.
+            </p>
+          </div>
 
         </div>
       </section>
@@ -254,30 +269,36 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
 
           {/* LEFT */}
-          <div className="text-sm text-teal-100 mb-4 md:mb-0">
+          <div className="text-lg text-teal-100 mb-4 md:mb-0">
             <p className="font-semibold text-white">Jayesoorya</p>
-            <p className="text-xs opacity-80">Full Stack Developer</p>
+            <p className="text-sm opacity-80">Full Stack Developer</p>
           </div>
 
           {/* RIGHT (SOCIAL ICONS) */}
-          <div className="flex space-x-5 text-xl">
-            <a
-              href="https://github.com/Jayesoorya"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-teal-300 transition transform hover:scale-110"
-            >
-              <FaGithub />
-            </a>
+          <div className="flex flex-col items-cente">
+            <p className="text-lg mb-3 opacity-80">
+              Social Networks
+            </p>
+            
+            <div className="flex space-x-5 text-xl">
+              <a
+                href="https://github.com/Jayesoorya"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-teal-300 transition transform hover:scale-110"
+              >
+                <FaGithub />
+              </a>
 
-            <a
-              href="https://www.linkedin.com/in/jayesoorya-p-11307624a/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-teal-300 transition transform hover:scale-110"
-            >
-              <FaLinkedin />
-            </a>
+              <a
+                href="https://www.linkedin.com/in/jayesoorya-p-11307624a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-teal-300 transition transform hover:scale-110"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
           </div>
         </div>
 
