@@ -265,7 +265,7 @@ export default function Portfolio() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-teal-900 text-white py-6 mt-20">
+      <footer className="bg-teal-700 text-white py-6 mt-20">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
 
           {/* LEFT */}
