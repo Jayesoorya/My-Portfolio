@@ -1,38 +1,102 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Portfolio() {
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const canvasRef = useRef(null);  // ← added
 
   useEffect(() => {
-  const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll("section");
 
-  const handleScroll = () => {
-    let current = "home";
+    const handleScroll = () => {
+      let current = "home";
 
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 120; // adjust for navbar
-      const sectionHeight = section.offsetHeight;
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
 
-      if (
-        window.scrollY >= sectionTop &&
-        window.scrollY < sectionTop + sectionHeight
-      ) {
-        current = section.getAttribute("id");
+        if (
+          window.scrollY >= sectionTop &&
+          window.scrollY < sectionTop + sectionHeight
+        ) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      setActive(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // ← added: particle network animation
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const section = canvas.parentElement;
+    const ctx = canvas.getContext("2d");
+    const TEAL = "15,114,96";
+    let animFrameId;
+    let nodes = [];
+
+    function initNodes() {
+      nodes = Array.from({ length: 48 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        r: Math.random() * 2 + 1.2,
+      }));
+    }
+
+    function resize() {
+      canvas.width = section.offsetWidth;
+      canvas.height = section.offsetHeight;
+      initNodes();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(${TEAL},${0.13 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.7;
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
       }
-    });
+      for (const n of nodes) {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${TEAL},0.3)`;
+        ctx.fill();
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+        if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+      }
+      animFrameId = requestAnimationFrame(draw);
+    }
 
-    setActive(current);
-  };
-
-  window.addEventListener("scroll", handleScroll);
-
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
-
+    resize();
+    draw();
+    const ro = new ResizeObserver(resize);
+    ro.observe(section);
+    return () => {
+      cancelAnimationFrame(animFrameId);
+      ro.disconnect();
+    };
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -54,7 +118,6 @@ export default function Portfolio() {
       {label}
     </button>
   );
-
 
   return (
     <div className="min-h-screen font-sans text-gray-800 bg-gray-50 scroll-smooth">
@@ -99,9 +162,14 @@ export default function Portfolio() {
       </nav>
 
       {/* HERO */}
-      <section id="home" className="min-h-screen flex items-center pt-32 px-6 border-b border-gray-100 bg-white">
+      // 1. section tag — bg-white → bg-[#f0faf7], add relative overflow-hidden
+<section id="home" className="min-h-screen flex items-center pt-32 px-6 border-b border-gray-100 bg-[#f0faf7] relative overflow-hidden">
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+  {/* 2. ADD this canvas as the very first child inside the section */}
+  <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }} />
+
+  {/* 3. content grid — add relative z-10 */}
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center relative z-10">
 
           {/* IMAGE (from LEFT) */}
           <motion.div
