@@ -267,6 +267,7 @@ export default function Portfolio() {
 
         </div>
       </section>
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-teal-400 to-transparent opacity-60"></div>
 
       {/* PROJECTS */}
       <section id="projects" className="px-6 py-24 bg-teal-50/40 border-b border-gray-100">
