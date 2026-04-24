@@ -167,39 +167,73 @@ export default function Portfolio() {
 
           <div className="grid md:grid-cols-2 gap-8">
 
-            <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 border border-gray-100">
+            <div className="group bg-white rounded-2xl p-6 shadow-md 
+              hover:shadow-2xl hover:-translate-y-2 
+              transition duration-300 border border-gray-100
+              hover:bg-emerald-100 hover:border-emerald-400">
 
-              <img src="/key_code.png" className="h-48 w-full object-cover rounded-xl mb-4" />
+                <img src="/key_code.png" className="h-48 w-full object-cover rounded-xl mb-4" />
 
-              <h4 className="text-2xl font-bold text-teal-700 mb-2">
-                Key-Code-Project
-              </h4>
+                <h4 className="text-2xl font-bold text-teal-700 mb-2 
+                group-hover:text-emerald-800 transition">
+                  Key-Code-Project
+                </h4>
 
-              <p className="text-gray-700 mb-4">
-                Displays keyboard key codes in real-time using JavaScript event handling.
-              </p>
+                <p className="text-gray-700 mb-4 
+                group-hover:text-gray-700 transition">
+                  Displays keyboard key codes in real-time using JavaScript event handling.
+                </p>
 
-              <a href="https://github.com/Jayesoorya/Key-Code-Project" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
-                GitHub →
-              </a>
-            </div>
+                <a
+                  href="https://github.com/Jayesoorya/Key-Code-Project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn inline-flex items-center gap-1 px-4 py-1.5 rounded-md 
+                  border border-emerald-500 text-emerald-600 
+                  transition duration-700
+                  hover:bg-emerald-600 hover:text-white"
+                >
+                  GitHub
+                  <span className="transition-transform duration-300 group-hover/btn:translate-x-1">
+                    →
+                  </span>
+                </a>
 
-            <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 border border-gray-100">
+              </div>
 
-              <img src="/helpdesk_system.png" className="h-48 w-full object-cover rounded-xl mb-4" />
+              <div className="group bg-white rounded-2xl p-6 shadow-md 
+                hover:shadow-2xl hover:-translate-y-2 
+                transition duration-300 border border-gray-100
+                hover:bg-violet-100 hover:border-violet-400">
 
-              <h4 className="text-2xl font-bold text-teal-700 mb-2">
-                Helpdesk System
-              </h4>
+                  <img src="/helpdesk_system.png" className="h-48 w-full object-cover rounded-xl mb-4" />
 
-              <p className="text-gray-700 mb-4">
-                Full-stack ticket management system with JWT authentication, REST APIs.
-              </p>
+                  <h4 className="text-2xl font-bold text-teal-700 mb-2 
+                  group-hover:text-violet-800 transition">
+                    Helpdesk System
+                  </h4>
 
-              <a href="https://github.com/Jayesoorya/Helpdesk-Upgraded" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
-                GitHub →
-              </a>
-            </div>
+                  <p className="text-gray-700 mb-4 
+                  group-hover:text-gray-700 transition">
+                    Full-stack ticket management system with JWT authentication, REST APIs.
+                  </p>
+
+                  <a
+                    href="https://github.com/Jayesoorya/Helpdesk-Upgraded"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn inline-flex items-center gap-1 px-4 py-1.5 rounded-md 
+                    border border-violet-500 text-violet-600 
+                    transition duration-300
+                    hover:bg-violet-600 hover:text-white"
+                  >
+                    GitHub
+                    <span className="transition-transform duration-700 group-hover/btn:translate-x-1">
+                      →
+                    </span>
+                  </a>
+
+              </div>
 
           </div>
         </div>
@@ -265,7 +299,7 @@ export default function Portfolio() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-teal-700 text-white py-6 mt-20">
+      <footer className="bg-teal-600 text-white py-6 mt-20">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
 
           {/* LEFT */}
@@ -285,18 +319,22 @@ export default function Portfolio() {
                 href="https://github.com/Jayesoorya"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-teal-300 transition transform hover:scale-110"
+                className="text-600 hover:text-600 
+                            transition-transform duration-300 ease-out 
+                            transform hover:scale-115 hover:-translate-y-1"
               >
-                <FaGithub />
+                <FaGithub size={26} />
               </a>
 
               <a
                 href="https://www.linkedin.com/in/jayesoorya-p-11307624a/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-teal-300 transition transform hover:scale-110"
+                className="text-600 hover:text-600 
+                            transition-transform duration-300 ease-out 
+                            transform hover:scale-115 hover:-translate-y-1"
               >
-                <FaLinkedin />
+                <FaLinkedin size={26}/>
               </a>
             </div>
           </div>
