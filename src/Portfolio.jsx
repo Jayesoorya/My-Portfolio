@@ -163,13 +163,13 @@ export default function Portfolio() {
 
       {/* HERO */}
       // 1. section tag — bg-white → bg-[#f0faf7], add relative overflow-hidden
-<section id="home" className="min-h-screen flex items-center pt-32 px-6 border-b border-gray-100 bg-[#f0faf7] relative overflow-hidden">
+      <section id="home" className="min-h-screen flex items-center pt-32 px-6 border-b border-gray-100 bg-[#f0faf7] relative overflow-hidden">
 
-  {/* 2. ADD this canvas as the very first child inside the section */}
-  <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }} />
+        {/* 2. ADD this canvas as the very first child inside the section */}
+        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }} />
 
-  {/* 3. content grid — add relative z-10 */}
-  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center relative z-10">
+        {/* 3. content grid — add relative z-10 */}
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center relative z-10">
 
           {/* IMAGE (from LEFT) */}
           <motion.div
