@@ -176,7 +176,7 @@ export default function Portfolio() {
 
                 <h4 className="text-2xl font-bold text-teal-700 mb-2 
                 group-hover:text-emerald-800 transition">
-                  Key-Code-Project
+                  Key Code Project
                 </h4>
 
                 <p className="text-gray-700 mb-4 
@@ -272,88 +272,120 @@ export default function Portfolio() {
       {/* CONTACT */}
       <section id="contact" className="px-6 py-24 bg-teal-50 border-t border-gray-100">
 
-        <div className="max-w-4xl mx-auto text-center bg-white rounded-2xl shadow-md p-8 border border-gray-100">
+        <div className="max-w-4xl mx-auto text-center bg-white rounded-2xl shadow-md p-10 border border-gray-100">
 
-          <h3 className="text-5xl font-bold mb-6 text-teal-700">Contact</h3>
+          {/* HEADING */}
+          <h3 className="text-4xl md:text-5xl font-bold mb-4 text-teal-700">
+            Let’s Work Together
+          </h3>
 
-          <p className="text-gray-700 mb-4">
-            Feel free to reach out for collaboration or opportunities.
+          {/* SUBTEXT */}
+          <p className="text-gray-600 mb-8">
+            Open to opportunities, collaborations, or just a tech conversation.
           </p>
 
-          <p className="mb-2">
-            <a href="mailto:jayesoorya@gmail.com" className="text-teal-600 hover:underline">
-              jayesoorya@gmail.com
+          {/* CONTACT CARDS */}
+          <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
+
+            {/* EMAIL */}
+            <a 
+              href="mailto:jayesoorya@gmail.com"
+              className="px-6 py-3 bg-gray-50 rounded-xl border border-gray-200 
+              hover:bg-teal-50 hover:border-teal-300 transition"
+            >
+              <p className="text-sm text-gray-500">Email</p>
+              <p className="text-teal-700 font-medium">jayesoorya@gmail.com</p>
             </a>
-          </p>
 
-          <p className="mb-6">
-            <a href="tel:+919363392969" className="text-teal-600 hover:underline">
-              +91 93633 92969
+            {/* PHONE */}
+            <a 
+              href="tel:+919363392969"
+              className="px-6 py-3 bg-gray-50 rounded-xl border border-gray-200 
+              hover:bg-teal-50 hover:border-teal-300 transition"
+            >
+              <p className="text-sm text-gray-500">Phone</p>
+              <p className="text-teal-700 font-medium">+91 93633 92969</p>
             </a>
-          </p>
 
-          <a href="mailto:jayesoorya@gmail.com" className="bg-teal-600 text-white px-6 py-3 rounded-xl hover:bg-teal-700">
-            Email Me
-          </a>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="bg-teal-600 text-white py-6 mt-20">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
-
-          {/* LEFT */}
-          <div className="text-lg text-teal-100 mb-4 md:mb-0">
-            <p className="font-semibold text-white">Jayesoorya</p>
-            <p className="text-sm opacity-80">Full Stack Developer</p>
           </div>
 
-          {/* RIGHT (SOCIAL ICONS) */}
-          <div className="flex flex-col items-cente">
-            <p className="text-lg mb-3 opacity-80">
-              Social Networks
-            </p>
-            
-            <div className="flex space-x-5 text-xl">
-              <a
-                href="https://github.com/Jayesoorya"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-600 hover:text-600 
-                            transition-transform duration-300 ease-out 
-                            transform hover:scale-115 hover:-translate-y-1"
-              >
-                <FaGithub size={26} />
-              </a>
+          {/* CTA BUTTON */}
+          <a 
+            href="mailto:jayesoorya@gmail.com" 
+            className="inline-block bg-teal-600 text-white px-8 py-3 rounded-xl 
+            hover:bg-teal-700 hover:scale-105 shadow-md transition duration-300"
+          >
+            Send Email
+          </a>
 
+        </div>
+      </section> 
+
+
+      {/* FOOTER */}
+      <footer className="bg-teal-600 text-white py-8 mt-20">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6 items-center">
+
+          {/* LEFT */}
+          <div>
+            <p className="font-semibold text-lg">Jayesoorya</p>
+            <p className="text-sm opacity-80">Full Stack Developer</p>
+            <p className="text-sm mt-1 text-teal-100 opacity-80">
+              Building scalable and efficient web applications
+            </p>
+          </div>
+
+          {/* CENTER - QUICK LINKS */}
+          <div className="text-center">
+            <p className="text-lg mb-2 opacity-80">Quick Links</p>
+            <div className="flex justify-center space-x-6 text-md">
+              <a href="#projects" className="hover:text-teal-200 transition">Projects</a>
+              <a href="#about" className="hover:text-teal-200 transition">About</a>
+              {/* <a href="#" className="hover:text-teal-200 transition"></a> */}
+            </div>
+          </div>
+
+          {/* RIGHT - SOCIAL */}
+          <div className="flex flex-col items-center md:items-end">
+            <p className="text-lg mb-2 opacity-80">Connect</p>
+
+            <div className="flex space-x-5 text-xl">
               <a
                 href="https://www.linkedin.com/in/jayesoorya-p-11307624a/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-600 hover:text-600 
-                            transition-transform duration-300 ease-out 
-                            transform hover:scale-115 hover:-translate-y-1"
+                className="text-white transition-transform duration-300 transform hover:scale-115 hover:-translate-y-1"
               >
-                <FaLinkedin size={26}/>
+                <FaLinkedin size={26} />
+              </a>
+
+              <a
+                href="https://github.com/Jayesoorya"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white transition-transform duration-300 transform hover:scale-115 hover:-translate-y-1"
+              >
+                <FaGithub size={26} />
               </a>
             </div>
           </div>
+
         </div>
 
-        <div className="text-center text-xs text-teal-200 mt-4 opacity-80">
-          © 2026 Jayesoorya. All rights reserved.
+        {/* COPYRIGHT */}
+        <div className="text-center text-xs text-teal-100 mt-6 opacity-80">
+          © 2026 Jayesoorya
         </div>
 
-        {/* BACK TO TOP (RIGHT SIDE) */}
+        {/* BACK TO TOP */}
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center 
+          className="fixed bottom-16 right-6 w-12 h-12 flex items-center justify-center 
           bg-white text-teal-700 rounded-full shadow-lg 
           hover:scale-110 hover:bg-teal-100 transition duration-300 text-2xl z-50"
         >
           ↑
         </button>
-
       </footer>
 
     </div>
