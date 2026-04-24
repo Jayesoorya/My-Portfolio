@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function Portfolio() {
   const [active, setActive] = useState("home");
@@ -98,45 +99,87 @@ export default function Portfolio() {
       </nav>
 
       {/* HERO */}
-      <section id="home" className="min-h-screen flex items-center pt-32 px-6 bg-white border-b border-gray-100">
+      <section id="home" className="min-h-screen flex items-center pt-32 px-6 border-b border-gray-100 bg-white">
+
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 
-          <div className="flex justify-center">
+          {/* IMAGE (from LEFT) */}
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex justify-center"
+          >
             <img
               src="/profile_pic.png"
               alt="profile"
               className="w-80 h-80 rounded-2xl object-cover object-[center_20%] shadow-lg bg-white p-1"
             />
-          </div>
+          </motion.div>
 
-          <div>
-            <p className="text-gray-600 mb-3 text-lg">
+          {/* TEXT (from RIGHT) */}
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
+            <motion.p
+              className="text-gray-600 mb-3 text-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
               Hello, I'm
-            </p>
+            </motion.p>
 
-            <h2 className="text-5xl md:text-6xl font-semibold mb-4 text-gray-800 leading-tight">
+            <motion.h2
+              className="text-5xl md:text-6xl font-semibold mb-4 text-gray-800 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
               Full Stack Developer focused on Backend Systems
-            </h2>
+            </motion.h2>
 
-            <p className="text-gray-700 mb-4 text-lg">
+            <motion.p
+              className="text-gray-700 mb-4 text-lg"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
               I build scalable and secure web applications using Laravel, REST APIs, and modern frontend technologies.
-            </p>
+            </motion.p>
 
-            <p className="text-gray-600 mb-6">
+            <motion.p
+              className="text-gray-600 mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+            >
               Experienced in authentication systems (JWT), performance optimization, and building real-world applications from scratch.
-            </p>
+            </motion.p>
 
             {/* SKILLS */}
-            <div className="flex flex-wrap gap-3 mb-8 text-sm">
-              <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full">Laravel</span>
-              <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full">REST APIs</span>
-              <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full">JWT Auth</span>
-              <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full">MySQL</span>
-              <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full">Caching</span>
-            </div>
+            <motion.div
+              className="flex flex-wrap gap-3 mb-8 text-sm"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+            >
+              {["Laravel", "REST APIs", "JWT Auth", "MySQL", "Caching"].map((skill) => (
+                <span key={skill} className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </motion.div>
 
-            {/* CTA BUTTONS */}
-            <div className="flex flex-wrap gap-4">
+            {/* BUTTONS */}
+            <motion.div
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9 }}
+            >
               <a
                 href="#projects"
                 className="bg-teal-600 text-white px-6 py-3 rounded-xl hover:bg-teal-700 transition shadow-md"
@@ -151,8 +194,8 @@ export default function Portfolio() {
               >
                 ⬇ Resume
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
         </div>
       </section>
